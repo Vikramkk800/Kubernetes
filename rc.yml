@@ -1,0 +1,28 @@
+kind: ReplicationController             # Object type
+apiVersion: v1                          # API version
+metadata:
+  name: myreplicationcontroller         # Name of the ReplicationController
+
+spec:
+  replicas: 2                            # Number of pod replicas to maintain
+  selector:
+    myname: sai                          # Selector to match pods with label "myname: sai"
+
+  template:
+    metadata:
+      labels:
+        myname: sai                      # Label to match selector (mandatory)
+
+    spec:
+      containers:
+        - name: c00                      # Name of the container
+          image: ubuntu:latest           # Using latest Ubuntu image
+          command:                       # Start an infinite loop to print messages
+            - "/bin/bash"
+            - "-c"
+            - "while true; do echo 'hello-sai'; sleep 5; done"
+
+          memory: "256Mi"
+
+  nodeSelector:
+    mynode: saidemy  # Make sure this label exists on a node
