@@ -1,0 +1,10 @@
+kind: pod                                # object type - basic car 
+apiVersion: v1                           #  apiVersion - fixed magup
+matadata:                                # name of the object 
+  name: testpod
+
+spec:
+ containers:                            # containers details 
+      - name: c00
+        image: ubuntu
+        command: ["/bin/bash", "-c", "while true; do echo hellow-sai; sleep 5; done"]
