@@ -1,0 +1,11 @@
+kind: Pod           # Object type (Pod)
+apiVersion: v1        
+metadata:
+  name: testpod2     
+
+spec:
+  containers:
+    - name: c02                    # First container
+      image: httpd                 # Using the official Nginx image
+      ports:
+        - containerPort: 80         # Exposing port 80 for the web server
