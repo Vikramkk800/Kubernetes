@@ -1,0 +1,15 @@
+kind: Pod                              # Object type
+apiVersion: v1                         # API version
+metadata:
+  name: testpod2                       # Name of the Pod
+  annotations:
+    description: "our first test pod added description"  # Corrected indentation
+
+spec:
+  containers:                           
+    - name: c00
+      image: ubuntu
+      command:
+        - "/bin/bash"
+        - "-c"
+        - "while true; do echo 'hello-sai'; sleep 5; done"
