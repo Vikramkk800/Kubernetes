@@ -1,0 +1,24 @@
+kind: ReplicaSet           # Object type
+apiVersion: apps/v1        # Correct API version for ReplicaSet
+metadata:
+  name: myreplicaset       # Name of the ReplicaSet
+
+spec:
+  replicas: 2              # Number of pod replicas to maintain
+  selector:
+    matchLabels:           # Corrected selector syntax (mandatory for ReplicaSet)
+      myname: sai          # Selector to match pods with label "myname: sai"
+
+  template:
+    metadata:
+      labels:
+        myname: sai        # Label to match selector (mandatory)
+
+    spec:
+      containers:
+        - name: c00                      # Name of the container
+          image: ubuntu:latest           # Using latest Ubuntu image
+          command:                       # Start an infinite loop to print messages
+            - "/bin/bash"
+            - "-c"
+            - "while true; do echo 'hello-sai'; sleep 5; done"
