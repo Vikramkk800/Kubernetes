@@ -1,0 +1,19 @@
+kind: Pod           # Object type (Pod)
+apiVersion: v1        
+metadata:
+  name: testpod      
+
+spec:
+  containers:
+    - name: c00                    # First container
+      image: ubuntu:latest         # Using latest Ubuntu image
+      command:                     # Start an infinite loop to print messages
+        - "/bin/bash"
+        - "-c"
+        - "while true; do echo 'hello-sai'; sleep 5; done"
+
+    - name: c01                    # Second container
+      image: httpd                 # Using Apache HTTP Server
+      ports:
+        - containerPort: 80         # Corrected key (containerPort, not containerport)
+
