@@ -1,0 +1,14 @@
+kind: Service           # Object type (Service)
+apiVersion: v1         # API version for Service
+metadata:
+  name: demoservice    # Name of the Service
+
+spec:
+  selector:           # This service will target Pods with the following label
+    myname: deployment  # Corrected key (should match Pod labels)
+
+  ports:
+    - port: 80         # Port on which the service is exposed
+      targetPort: 80   # Port on which the application inside the Pod is running
+
+  type: ClusterIP      # Service type (default), makes the service accessible inside the cluster
