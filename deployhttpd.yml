@@ -1,0 +1,23 @@
+kind: Deployment           # Object type (Deployment)
+apiVersion: apps/v1        # Correct API version for Deployment
+metadata:
+  name: mydeployments      # Name of the Deployment
+
+spec:
+  replicas: 1              # Number of pod replicas to maintain
+  selector:
+    matchLabels:           # Corrected selector syntax (mandatory for Deployment)
+      myname: deployment   # Selector to match pods with label "myname: deployment"
+
+  template:
+    metadata:
+      labels:
+        myname: deployment # Label to match selector (mandatory)
+
+    spec:
+      containers:
+        - name: c00                    # Name of the container
+          image: httpd         # Using latest Ubuntu image
+          ports:
+          - containerPort: 80 #should match with the port in service file
+          
