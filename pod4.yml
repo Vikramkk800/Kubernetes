@@ -1,0 +1,17 @@
+kind: Pod                              # Object type
+apiVersion: v1                         # API version
+metadata:
+  name: testpod4                       # Name of the Pod
+
+spec:
+  containers:                           
+    - name: c00
+      image: ubuntu
+      command:
+        - "/bin/bash"
+        - "-c"
+        - "while true; do echo 'hello-sai'; sleep 5; done"
+
+      env: 
+        - name: MYNAME
+          value: "Sai"
