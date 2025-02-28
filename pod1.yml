@@ -1,10 +1,10 @@
-kind: pod                                # object type - basic car 
-apiVersion: v1                           #  apiVersion - fixed magup
-matadata:                                # name of the object 
-  name: testpod
+kind: Pod                              # Object type (must be "Pod", not "pod")
+apiVersion: v1                         # API version
+metadata:                               # Corrected typo (was "matadata")
+  name: testpod                         # Name of the Pod
 
 spec:
- containers:                            # containers details 
-      - name: c00
-        image: ubuntu
-        command: ["/bin/bash", "-c", "while true; do echo hellow-sai; sleep 5; done"]
+  containers:                           # Containers details
+    - name: c00
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo 'hello-sai'; sleep 5; done"]
