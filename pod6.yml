@@ -1,0 +1,17 @@
+kind: Pod                              # Object type
+apiVersion: v1                         # API version
+metadata:
+  name: labelspod2                     # Name of the Pod
+  
+  labels:
+    day: "sat"                         # Any key, any value (quoted for best practice)
+    class: "kubernetes"
+
+spec:
+  containers:                           
+    - name: c00
+      image: ubuntu:latest              # Specify an image tag
+      command:
+        - "/bin/bash"
+        - "-c"
+        - "while true; do echo 'hello-sai'; sleep 5; done"
