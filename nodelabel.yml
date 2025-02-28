@@ -1,0 +1,16 @@
+kind: Pod                              # Object type
+apiVersion: v1                         # API version
+metadata:
+  name: nodelabel                      # Name of the Pod
+
+spec:
+  containers:                           
+    - name: c00
+      image: ubuntu:latest              # Specify an image tag
+      command:
+        - "/bin/bash"
+        - "-c"
+        - "while true; do echo 'hello-sai'; sleep 5; done"
+
+  nodeSelector:
+    mynode: saidemy  # Make sure this label exists on a node
